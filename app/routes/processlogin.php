@@ -9,10 +9,12 @@ if (session_status() === PHP_SESSION_NONE) {
     $_SESSION['userid'] = '1001';
     $_SESSION['username'] = 'Gordon Conway';
 }
-$app->POST('/processlogin',
-    function (Request $request, Response $response) use ($app) {
-    $view = Twig::fromRequest($request);
-        return $view->render($response, 'home-page.html.twig', [
-            ]);
 
-    })->setName('processlogin');
+    $app->POST('/processlogin', function ($request, $response) use ($container) {
+        $data = [$_REQUEST['email'], $_REQUEST['password']];
+        var_dump($data);
+        die;
+        return $container->get('view')->render($response, 'home-page.html.twig');
+       })
+       
+         -> setName('processlogin');

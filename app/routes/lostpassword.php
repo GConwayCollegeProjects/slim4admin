@@ -7,8 +7,8 @@ use Slim\Psr7\Request;
 use Slim\Psr7\Response;
 use Slim\Views\Twig;
 
-$app->get('/lostpassword', function(Request $request, Response $response, $args) {
-    $view = Twig::fromRequest($request);
-    return $view->render($response, 'lost-password.html.twig', [
-    ]);
-})->setName('lostpassword');;
+$app->get('/lostpassword', function ($request, $response) use ($container) {
+    return $container->get('view')->render($response, 'lost-password.html.twig');
+   })
+   
+     -> setName('lostpassword');

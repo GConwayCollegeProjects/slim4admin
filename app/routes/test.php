@@ -8,7 +8,7 @@ use Slim\Psr7\Response;
 use Slim\Views\Twig;
 
 
-$app->get('/nonsense', function ($request, $response) use ($container) {
+$app->get('/test', function ($request, $response) use ($container) {
     if ($_SERVER['userid'] ='') {return $container->get('view')->render($response, 'logged-out.html.twig');
     }
     else {
@@ -16,4 +16,4 @@ $app->get('/nonsense', function ($request, $response) use ($container) {
     }
 })
 
-    -> setName('nonsense');
+    -> setName('test');

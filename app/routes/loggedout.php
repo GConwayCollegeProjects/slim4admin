@@ -7,11 +7,10 @@ use Slim\Psr7\Request;
 use Slim\Psr7\Response;
 use Slim\Views\Twig;
 
-$app->get('/rubbish', function(Request $request, Response $response, $args) {
-    $view = Twig::fromRequest($request);
-    return $view->render($response, 'logged-out.html.twig', [
-  //  return $view->render($response, 'test.twig', [
 
-    ]);
-})->setName('loggedout');;
 
+$app->get('/loggedout', function ($request, $response) use ($container) {
+ return $container->get('view')->render($response, 'logged-out.html.twig');
+})
+
+  -> setName('loggedout');

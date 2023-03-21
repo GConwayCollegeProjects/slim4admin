@@ -2,7 +2,7 @@
 
 {% block rightbox %}
 
-Home Page
+Development Menu Only
 
 <br>
 
@@ -10,6 +10,26 @@ Home Page
 
 <br>
 
-<a href='{{ url_for("nonsense") }}' >TEST</a>
+<a href='{{ url_for("loggedout") }}' >LOGGEDOUT</a>
+
+<br>
+
+<a href='{{ url_for("test") }}' >TEST</a>
+
+
+
+
+<br><br>
+require 'routes/loggedout.php';
+require 'routes/homepage.php';
+require 'routes/routelist.php';
+require 'routes/processlogin.php';
+require 'routes/processregistration.php';
+require 'routes/register.php';
+require 'routes/lostpassword.php';
+require 'routes/processlostpassword.php';
+require 'routes/test.php';
+require 'routes/userlist.php';
+require 'routes/cohortlist.php';
 
 {% endblock %}
