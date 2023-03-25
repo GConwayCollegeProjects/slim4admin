@@ -10,6 +10,7 @@ use Psr\Container\ContainerInterface;
 use Psr\Log\LoggerInterface;
 use Twig\Environment;
 
+
 return static function (ContainerBuilder $containerBuilder, array $settings) {
     $containerBuilder->addDefinitions([
         'settings' => $settings,

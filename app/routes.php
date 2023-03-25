@@ -13,4 +13,6 @@ require 'routes/processlostpassword.php';
 require 'routes/test.php';
 require 'routes/userlist.php';
 require 'routes/cohortlist.php';
+require 'routes/templates.php';
+
 

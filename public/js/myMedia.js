@@ -169,7 +169,7 @@ function fetchMedia(x) {
     if (x==='v'){
         oOutput.innerHTML = "Loading - please wait!";
     }
-    oReq.open("POST", "../app/helpers/fetchMedia.php", true);
+    oReq.open("POST", "../ass/app/helpers/fetchMedia.php", true);
     oReq.send(oData);
 }
 //=====================================================================================================================

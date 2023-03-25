@@ -16,7 +16,8 @@
     "autoload": {
         "psr-4": {
                 "App\\": "/vendor",
-                "HomePage\\": "/public"
+                "HomePage\\": "/public",
+                "Cohortology\\": "/app/src"
         }
     }
 
