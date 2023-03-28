@@ -67,14 +67,14 @@ $app->post('/template-list', function ($request, $response, $args) use ($contain
 		}
 
         foreach($result as $key => $row) {
-			$href = 'getTemplate('.$row["event_id"].')';      //"{{url_for('/loggedout')}}";
+			$href = 'getTemplate('.$row["event_id"].')';   
 			$tab = "showTab('#details')";
 			echo '<div id='.$row["event_id"].' onclick='.$tab.' >';
 			echo '<a style="font-size: vsmall; font-decoration: underline;display: block;" id='.$row["event_id"].' href="">'.$row["event_name"].'</a>';
 			echo '</div>';
 	   }
 
-    return $container->get('view')->render($response, 'fresh.twig');
+    return $response;
     }
 })
 

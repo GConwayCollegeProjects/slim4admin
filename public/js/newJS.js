@@ -75,11 +75,25 @@ function openTemplate() {
     
 }
 
-
-
-
 function fetchTemplates(source, value) {
-
+  console.log (location.hostname)
+  if(location.hostname !== "localhost")
+  {
+  let url = '/website/public/template-list';
+  let oData = new FormData();
+  oData.append('submit', 'submit');
+  oData.append('source', source);
+  oData.append('value', value);
+  fetch(url, {
+    "method": "POST",
+    "body": oData,
+   })
+.then((response) => response.text())
+    .then((text) => {
+    templates.innerHTML = text;
+  });
+  }
+  else {
     let oData = new FormData();
     oData.append('submit', 'submit');
     oData.append('source', source);
@@ -105,5 +119,9 @@ function fetchTemplates(source, value) {
     oReq.setRequestHeader('X-Requested-With', 'XMLHttpRequest');
     oReq.send(oData);
    
-   }
-   
+  }
+}
+
+
+
+

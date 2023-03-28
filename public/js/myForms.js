@@ -3,6 +3,7 @@
 function showTab(tab){
     $("ul li").removeClass('disabled-tab').addClass('active-tab');
     $('.nav-tabs a[href="' + tab + '"]').tab('show');
+    return;
 
 
 

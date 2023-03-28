@@ -107,3 +107,34 @@ function testTemplates(type) {
   
   });
   
+
+
+  function fetchTemplates(source, value) {
+
+    let oData = new FormData();
+    oData.append('submit', 'submit');
+    oData.append('source', source);
+    oData.append('value', value);
+    let oReq = new XMLHttpRequest();
+   
+    oReq.onload = function () {
+        if (oReq.status === 200 && oReq.readyState === 4) {
+            
+            templates.innerHTML = oReq.response;
+          
+        } else {
+            templates.innerHTML = "Error " + oReq.status + " occurred when trying to upload your file. <br>";
+        }
+    };
+   
+    //const url = window.location.href+'/template-list'
+    const origin = location.origin;
+    console.log (origin);
+    url = origin + '/template-list';
+    console.log(url);
+    oReq.open("POST", url , true);
+    oReq.setRequestHeader('X-Requested-With', 'XMLHttpRequest');
+    oReq.send(oData);
+   
+   }
+   
