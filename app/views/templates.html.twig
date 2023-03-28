@@ -11,9 +11,8 @@
                 <a class='nav-link ' data-toggle='tab' id='#details' href='#details'>Details</a>
             </li>
             <li class='nav-item disabled-tab'>
-                <a class='nav-link' data-toggle='tab' id='#includes' href='#includes'>Includes</a>
+                <a class='nav-link ' data-toggle='tab' id='#includes' href='#includes'>Includes</a>
             </li>
-
             <li class='nav-item disabled-tab'>
                 <a class='nav-link ' data-toggle='tab' id='#text' href='#text'>Text</a>
             </li>
@@ -55,33 +54,34 @@
 
 
 
-            <div id='template-list' style="height: 250px; width:80%; background-color: lightblue; margin-right: 2em; margin-top: .5em; overflow-y: scroll; overflow-x: hidden; ">
-                {% block template_list %}
-                {% endblock %}
+            <div id='template-list' style="height: 250px; width:80%; background-color: blue; margin-right: 2em; margin-top: .5em; overflow-y: scroll; overflow-x: hidden; ">
+                
             </div>
 
-            <button style="margin: .5em auto 0" onclick="showTab('#details')" >ADD NEW TEMPLATE</button>
+            <button style="margin: .5em auto 0" onclick="newTemplate()" >ADD NEW TEMPLATE</button>
 
         </div>
-
-
-
-{#  Start Details Tab#}
+{#  Start General Details Tab#}
 
         <div id='details' class='container tab-pane  nomargins'><br>
+            <label for="title" class='nomargins'>Route title: </label><br><input type='text' name='title' id='title'  placeholder='Add Route title' size = '50' value='{{route.title}}'><br>
+           
+                
+            <label for="notes" class='nomargins'>Cohort Notes: </label><br>
+            <textarea name='notes' id='notes'  rows=4 cols=50 placeholder='Special notes only visible to cohorts'>{{ route.notes}}</textarea>
+        </div>
+{# End walk-details tab #}
 
 
+{#  Start Walk Details Tab#}
 
-            <label for="title" class='nomargins'>Route title: </label><br><input type='text' name='title' id='title'  placeholder='Add Route title' size = '50' value='{{route.anything}}'><br>
-
-
-
+        <div id='walk-details' class='container tab-pane  nomargins'><br>
+            <label for="title" class='nomargins'>Route title: </label><br><input type='text' name='title' id='title'  placeholder='Add Route title' size = '50' value='{{route.title}}'><br>
             <div class='row'>
                 <div class='col' style='max-width: 40%' ><label for='distance' class='nomargins'>Distance (miles):</label><br>
                     <input id='distance' type='text' name='distance'  size = '20' placeholder='Add distance' value='{{route.distance}}'></div>
 
                 <div class='col' ><label for='ascent' class='nomargins'>Ascent (metres):</label><br><input id='ascent' type='text' name='ascent'  size = '20' placeholder='Add accumulated ascent' value='{{route.ascent}}'></div>
-
             </div>
             <label for='terrain' class='nomargins'>Terrain encountered:</label><br>
             <div class='container'>
@@ -101,7 +101,6 @@
                     {% set counter = counter+1 %}
                 {% endfor %}
             </div>
-
             <label class='nomargins'>Grade:</label><br>
             <div class='container'>
                   {% for tag in route.grade %}
@@ -113,15 +112,24 @@
                     {% endfor %}
                     <input type="radio" name='grade' value="{{ tag[0] }}" {% if selected %}checked{% endif %}> {{ tag[1] }}
                 {% endfor %}
-
             </div>
             <label for='gridref' class='nomargins'>UK National Grid Reference: (map centre)</label><br><input type='text' name='gridref' id='gridref' placeholder='Add Grid Reference i.e. XX123456 (no other formats accepted)' size = '50' value={{ route.gridref}}><br>
-
             <label for="notes" class='nomargins'>Cohort Notes: </label><br>
             <textarea name='notes' id='notes'  rows=4 cols=50 placeholder='Special notes only visible to cohorts'>{{ route.notes}}</textarea>
         </div>
-{#Start Includes Tab#}
+{# End walk-details tab #}
+
+{# Start Includes Tab#}
         <div id='includes' class='container tab-pane  nomargins' ><br>
+
+            <label for='preamble' class='nomargins'>Preamble:</label><br><textarea id='preamble' name='preamble' rows=4 cols=50 placeholder='Choose preamble or ignore, click to ADD / EDIT ---> '>{{ route.preamble}}</textarea><br>
+{#            <a id="preamble" href='#' onclick="updateRightBox(this.id,'text')"><img src='img\search.png' width='40px' style='display: inline' /></a><br>#}
+            <label for='footer' class='nomargins'>Footer: </label><br><textarea id='footer' name='footer' rows=4 cols=50 placeholder='Choose footer or ignore, click to ADD/EDIT  --->  '>{{ route.footer}}</textarea><br>
+{#            <a id="footer" href='#' onclick="updateRightBox(this.id,'text')"><img src='img\search.png' width='40px' style='display: inline' /></a><br>#}
+           
+       </div>
+
+   <div id='walk-includes' class='container tab-pane  nomargins' ><br>
 
             <label for='preamble' class='nomargins'>Preamble:</label><br><textarea id='preamble' name='preamble' rows=4 cols=50 placeholder='Choose preamble or ignore, click to ADD / EDIT ---> '>{{ route.preamble}}</textarea><br>
 {#            <a id="preamble" href='#' onclick="updateRightBox(this.id,'text')"><img src='img\search.png' width='40px' style='display: inline' /></a><br>#}
@@ -132,6 +140,10 @@
             <input type='text' name='os' id='os'  placeholder='Enter or paste an OS Maps link or ignore' size = '50' value={{ route.os}}><br>
             <input type='text' name='kt' id='kt'  placeholder='Enter or paste a Komoot link or ignore' size = '50' value={{ route.kt}}><br>
        </div>
+
+
+
+
 
 {#   Start of Text Tab#}
         <br>
@@ -252,7 +264,7 @@
 {% block rightbox %}
     <div class='site-home' id="routehome">
         <h2 id='right_head' class='text-center'><strong>Template</strong> entry!</h2>
-        <section style="color: white; font-weight: bold; line-height: 2em">
+        <section id="templates-right" style="color: white; font-weight: bold; line-height: 2em">
             <br>
             This is where you enter details of templates for use by cohorts. Some sections are optional but the more information you can provide the more successful resulting cohorts are likely to be.
 

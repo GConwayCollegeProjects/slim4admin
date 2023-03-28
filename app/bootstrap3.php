@@ -30,6 +30,10 @@ $app = AppFactory::create();
 
 $app->setBasePath(preg_replace('/(.*)\/.*/', '$1', $_SERVER['SCRIPT_NAME']));
 
+$app->addBodyParsingMiddleware();
+$app->addRoutingMiddleware();
+$app->addErrorMiddleware(true, true, true);
+
 $container->set('view', function() use($app) {
     $twig = Twig::create('../app/views', ['cache' => false ]);  //'../var/cache'
 

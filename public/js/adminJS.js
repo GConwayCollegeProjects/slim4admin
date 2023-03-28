@@ -124,8 +124,7 @@ function getTest(id) {
 
 function getOption(id) {
  
-    console.log(id);
-
+    
     const url = "/" + id;
 
     return location.href = url ;

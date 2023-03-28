@@ -6,27 +6,27 @@
             <form>
                <h2 class='options text-center'><strong>Options</strong></h2>
               <div class='options panel-height overflow-auto'>
-                        <div  class = 'my-nav' id='templates'  onclick='getOption(this.id)' style='background-color: var(--my-green) !important' >
+                        <div  class = 'my-nav' id='templates'  onclick="location.href='{{url_for('templates')}}'" style='background-color: var(--my-green) !important' >
                         <div class='my-burger'> <a  id='def'><img width=30px height=30px src='../img/burger.png' alt=''></a>
                         </div>
                         <p>Add/Amend Templates</p>
                     </div>
-                    <div  class = 'my-nav' id='cohortlist'  onclick='getOption(this.id)' style='background-color: var(--my-purple) !important' >
+                    <div  class = 'my-nav' id='cohortlist'  onclick="location.href='{{url_for('cohortlist')}}'" style='background-color: var(--my-purple) !important' >
                         <div class='my-burger'> <a  id='def'><img width=30px height=30px src='../img/burger.png' alt=''></a>
                         </div>
                         <p>Add/Amend Cohorts</p>  
                     </div>
-                    <div  class = 'my-nav' id='userlist'  onclick='getOption(this.id)' style='background-color: var(--my-orange) !important' >
+                    <div  class = 'my-nav' id='userlist'  onclick="location.href='{{url_for('userlist')}}'" style='background-color: var(--my-orange) !important' >
                         <div class='my-burger'> <a  id='def'><img width=30px height=30px src='../img/burger.png' alt=''></a>
                         </div>
                         <p>Add / Amend Users</p>  
                     </div>
-                    <div  class = 'my-nav' id='settings'  onclick='getOption(this.id)' style='background-color: var(--my-blue) !important' >
+                    <div  class = 'my-nav' id='settings'  onclick="location.href='{{url_for('settings')}}'" style='background-color: var(--my-blue) !important' >
                         <div class='my-burger'> <a  id='def'><img width=30px height=30px src='../img/burger.png' alt=''></a>
                         </div>
                         <p>Settings</p>  
                     </div>
-                    <div  class = 'my-nav' id='dologout'  onclick='getOption(this.id)' style='background-color: var(--my-red) !important' >
+                    <div  class = 'my-nav' id='dologout'  onclick="location.href='{{url_for('dologout')}}'" style='background-color: var(--my-red) !important' >
                         <div class='my-burger'> <a  id='def'><img width=30px height=30px src='../img/burger.png' alt=''></a>
                         </div>
                         <p>Log Out</p>  

@@ -618,6 +618,10 @@ img {
     overflow: hidden;
     
  }
+
+ .hidden {
+  display: none;
+ }
  
  .nav-item{
       display: inline-block;

@@ -14,5 +14,11 @@ require 'routes/test.php';
 require 'routes/userlist.php';
 require 'routes/cohortlist.php';
 require 'routes/templates.php';
+require 'routes/template-list.php';
+require 'routes/get-template.php';
+require 'routes/settings.php';
+require 'routes/dologout.php';
+
+
 
 

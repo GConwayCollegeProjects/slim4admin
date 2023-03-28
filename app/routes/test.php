@@ -4,14 +4,18 @@ declare(strict_types=1);
 
 if (session_status() === PHP_SESSION_NONE) {
 	session_start();
+	$_SESSION['userid'] = '1001';
+    $_SESSION['username'] = 'Gordon Conway';
 }
 
 use Slim\Psr7\Request;
 use Slim\Psr7\Response;
 use Slim\Views\Twig;
 
+$userid = $_SESSION['userid'];
+
 $app->get('/test', function ($request, $response) use ($container) {
-    if ($_SERVER['userid'] ='') {return $container->get('view')->render($response, 'logged-out.html.twig');
+    if ($userid ='') {return $container->get('view')->render($response, 'logged-out.html.twig');
     }
     else {
         $db_username = "u260357075_gconwayuk";
@@ -22,8 +26,7 @@ $app->get('/test', function ($request, $response) use ($container) {
         $dsn = "mysql:host=$db_host;dbname=$db_name";
         $pdo = new PDO($dsn, $db_username, $db_password);
 	
-        $userid = $_SESSION['userid'];
-
+       
         $type = 'all'; // temporary only
 
 	if ($type==='all') 
