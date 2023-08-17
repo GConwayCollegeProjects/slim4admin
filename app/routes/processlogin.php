@@ -13,7 +13,7 @@ use Slim\Views\Twig;
             $_SESSION['userid'] = '1001';
             $_SESSION['username'] = 'Gordon Conway';
         }
-        return $container->get('view')->render($response, 'home-page.html.twig');
+        return $container->get('view')->render($response, 'menu.html.twig');
        })
        
          -> setName('processlogin');

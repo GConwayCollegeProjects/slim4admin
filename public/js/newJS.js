@@ -6,7 +6,8 @@ let globalCurrent = 'general';
 
 document.addEventListener("click", evt => {
     if (evt.target.type === "radio" && evt.target.name === "filter") {
-      fetchTemplates('type', evt.target.id)
+      document.getElementById('search').value = "";
+      fetchTemplates('type', evt.target.id);
     }
   });
 

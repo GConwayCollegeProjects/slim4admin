@@ -28,7 +28,10 @@ AppFactory::setContainer($container);
 
 $app = AppFactory::create();
 
-$app->setBasePath(preg_replace('/(.*)\/.*/', '$1', $_SERVER['SCRIPT_NAME']));
+//$app->setBasePath(preg_replace('/(.*)\/.*/', '$1', $_SERVER['SCRIPT_NAME']));
+
+$app->setBasePath('/website/public');
+
 
 $container->set('view', function() use($app) {
     $twig = Twig::create('../app/views', ['cache' => false ]);  //'../var/cache'

@@ -36,10 +36,10 @@ $app->post('/template-list', function ($request, $response, $args) use ($contain
 
 			if ($value === 'all') 
 				{
-					$sql = "SELECT * FROM templates";
+					$sql = "SELECT * FROM templates ORDER BY event_name";
 					}
 				else {
-					$sql = "SELECT * FROM templates WHERE event_type = '$value' ";
+					$sql = "SELECT * FROM templates WHERE event_type = '$value' ORDER BY event_name";
 				}
 		}
 		else {

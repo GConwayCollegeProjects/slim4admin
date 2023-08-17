@@ -8,6 +8,12 @@ use Slim\Views\Twig;
 
 
 $app->get('/templates', function ($request, $response) use ($container) {
+ if (session_status() === PHP_SESSION_NONE) {
+            session_start();
+            $_SESSION['userid'] = '1001';
+            $_SESSION['username'] = 'Gordon Conway';
+        }
+
     if ($_SERVER['userid'] ='') {return $container->get('view')->render($response, 'logged-out.html.twig');
     }
     else {

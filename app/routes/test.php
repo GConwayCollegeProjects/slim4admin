@@ -14,7 +14,7 @@ use Slim\Views\Twig;
 
 $userid = $_SESSION['userid'];
 
-$app->get('/test', function ($request, $response) use ($container) {
+$app->post('/test', function ($request, $response) use ($container) {
     if ($userid ='') {return $container->get('view')->render($response, 'logged-out.html.twig');
     }
     else {

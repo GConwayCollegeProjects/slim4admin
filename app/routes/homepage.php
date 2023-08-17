@@ -11,7 +11,7 @@ $app->get('/', function ($request, $response) use ($container) {
     if ($_SERVER['userid'] ='') {return $container->get('view')->render($response, 'logged-out.html.twig');
     }
     else {
-        return $container->get('view')->render($response, 'home.twig');
+        return $container->get('view')->render($response, 'home-page.html.twig');
     }
 })
 
